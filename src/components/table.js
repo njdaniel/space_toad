@@ -9,27 +9,48 @@ import 'react-table/react-table.css';
 
 const data = _.map(_.range(5553), d => {
     return {
-        firstName: namor.generate({ words: 1, numbers: 0 }),
-        lastName: namor.generate({ words: 1, numbers: 0 }),
-        age: Math.floor(Math.random() * 30)
+        mailbox: namor.generate({ words: 1, numbers: 0 }),
+        server: namor.generate({ words: 1, numbers: 0 }),
+        protocol: namor.generate({ words: 1, numbers: 0 }),
+        customer: namor.generate({ words: 1, numbers: 0 }),
+        ip: Math.floor(Math.random() * 30),
+        inbox: namor.generate({ words: 1, numbers: 0 }),
+        outbox: namor.generate({ words: 1, numbers: 0 }),
+        date: Math.floor(Math.random() * 30)
     }
 });
 
 const columns = [{
-    header: 'Name',
+    header: 'File Transfer Connections',
     columns: [{
-        header: 'First Name',
-        accessor: 'firstName'
+        header: 'Mailbox',
+        accessor: 'mailbox'
     }, {
-        header: 'Last Name',
-        id: 'lastName',
-        accessor: d => d.lastName
-    }]
-}, {
-    header: 'Info',
-    columns: [{
-        header: 'Age',
-        accessor: 'age'
+        header: 'Server',
+        id: 'server',
+        accessor: d => d.server
+    }, {
+        header: 'Protocol',
+        id: 'protocol',
+        accessor: d => d.protocol
+    }, {
+        header: 'Customer',
+        id: 'customer',
+        accessor: d => d.customer
+    },{
+        header: 'IP',
+        accessor: 'ip'
+    }, {
+        header: 'Inbox',
+        id: 'inbox',
+        accessor: d => d.inbox
+    }, {
+        header: 'Outbox',
+        id: 'outbox',
+        accessor: d => d.outbox
+    },{
+        header: 'Date',
+        accessor: 'date'
     }]
 }];
 
