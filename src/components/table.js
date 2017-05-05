@@ -24,7 +24,8 @@ const columns = [{
     header: 'File Transfer Connections',
     columns: [{
         header: 'Mailbox',
-        accessor: 'mailbox'
+        accessor: 'mailbox',
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
         header: 'Server',
         id: 'server',
@@ -90,6 +91,8 @@ export default class DataTable extends Component {
                 onPageChange={page => this.setState({page})}
                 pageSize={this.state.pageSize}
                 onPageSizeChange={(pageSize, page) => this.setState({page, pageSize})}
+                defaultFilterMethod={(filter, row) => (String(row[filter.id]) === filter.value)}
+                showFilters={true}
             />
         );
     }
