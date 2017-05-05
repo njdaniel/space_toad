@@ -30,29 +30,36 @@ const columns = [{
     }, {
         header: 'Server',
         id: 'server',
-        accessor: d => d.server
+        accessor: d => d.server,
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
         header: 'Protocol',
         id: 'protocol',
-        accessor: d => d.protocol
+        accessor: d => d.protocol,
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
         header: 'Customer',
         id: 'customer',
-        accessor: d => d.customer
+        accessor: d => d.customer,
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     },{
         header: 'IP',
-        accessor: 'ip'
+        accessor: 'ip',
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
         header: 'Inbox',
         id: 'inbox',
-        accessor: d => d.inbox
+        accessor: d => d.inbox,
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
         header: 'Outbox',
         id: 'outbox',
-        accessor: d => d.outbox
+        accessor: d => d.outbox,
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     },{
         header: 'Date',
-        accessor: 'date'
+        accessor: 'date',
+        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }]
 }];
 
