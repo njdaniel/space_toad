@@ -15,9 +15,9 @@ const data = _.map(_.range(5553), d => {
         customer: namor.generate({ words: 1, numbers: 0 }) + " Corporation",
         ip: Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255) + '.' +
             Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255),
-        inbox: namor.generate({ words: 1, numbers: 0 }),
-        outbox: namor.generate({ words: 1, numbers: 0 }),
-        date: Math.floor(Math.random() * 30)
+        inbox: '/root/' + namor.generate({ words: 1, numbers: 0 }),
+        outbox: '/root/' + namor.generate({ words: 1, numbers: 0 }),
+        date: Math.floor(Math.random() * 12) + '/' + Math.floor(Math.random() * 27) + '/' + '2017'
     }
 });
 
