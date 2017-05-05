@@ -12,8 +12,9 @@ const data = _.map(_.range(5553), d => {
         mailbox: namor.generate({ words: 1, numbers: 0 }),
         server: namor.generate({ words: 1, numbers: 0 }),
         protocol: namor.generate({ words: 1, numbers: 0 }),
-        customer: namor.generate({ words: 1, numbers: 0 }),
-        ip: Math.floor(Math.random() * 30),
+        customer: namor.generate({ words: 1, numbers: 0 }) + " Corporation",
+        ip: Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255) + '.' +
+            Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255),
         inbox: namor.generate({ words: 1, numbers: 0 }),
         outbox: namor.generate({ words: 1, numbers: 0 }),
         date: Math.floor(Math.random() * 30)
