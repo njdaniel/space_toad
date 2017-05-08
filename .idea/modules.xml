@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/datatoad.iml" filepath="$PROJECT_DIR$/.idea/datatoad.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/space_toad.iml" filepath="$PROJECT_DIR$/.idea/space_toad.iml" />
     </modules>
   </component>
 </project>

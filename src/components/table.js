@@ -9,56 +9,33 @@ import 'react-table/react-table.css';
 
 const data = _.map(_.range(5553), d => {
     return {
-        mailbox: namor.generate({ words: 1, numbers: 0 }),
-        server: namor.generate({ words: 1, numbers: 0 }),
-        protocol: namor.generate({ words: 1, numbers: 0 }),
-        customer: namor.generate({ words: 1, numbers: 0 }) + " Corporation",
-        ip: Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255) + '.' +
-            Math.floor(Math.random() * 255) + '.' + Math.floor(Math.random() * 255),
-        inbox: '/root/' + namor.generate({ words: 1, numbers: 0 }),
-        outbox: '/root/' + namor.generate({ words: 1, numbers: 0 }),
-        date: Math.floor(Math.random() * 12) + '/' + Math.floor(Math.random() * 27) + '/' + '2017'
+        item: namor.generate({ words: 1, numbers: 0 }),
+        location: namor.generate({ words: 1, numbers: 0 }),
+        sell_price: Math.floor(Math.random() * 99),
+        buy_price: Math.floor(Math.random() * 99)
     }
 });
 
 const columns = [{
-    header: 'File Transfer Connections',
+    header: 'Market',
     columns: [{
-        header: 'Mailbox',
-        accessor: 'mailbox',
+        header: 'Item',
+        accessor: 'item',
         filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
-        header: 'Server',
-        id: 'server',
-        accessor: d => d.server,
+        header: 'Location',
+        id: 'location',
+        accessor: d => d.location,
         filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
-        header: 'Protocol',
-        id: 'protocol',
-        accessor: d => d.protocol,
+        header: 'Sell Price',
+        id: 'sell_price',
+        accessor: d => d.sell_price,
         filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }, {
-        header: 'Customer',
-        id: 'customer',
-        accessor: d => d.customer,
-        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
-    },{
-        header: 'IP',
-        accessor: 'ip',
-        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
-    }, {
-        header: 'Inbox',
-        id: 'inbox',
-        accessor: d => d.inbox,
-        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
-    }, {
-        header: 'Outbox',
-        id: 'outbox',
-        accessor: d => d.outbox,
-        filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
-    },{
-        header: 'Date',
-        accessor: 'date',
+        header: 'Buy Price',
+        id: 'buy_price',
+        accessor: d => d.buy_price,
         filterMethod: (filter, row) => (row[filter.id].includes(filter.value))
     }]
 }];
