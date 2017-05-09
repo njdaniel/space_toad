@@ -53,7 +53,7 @@ export default class DataTable extends Component {
 
     sortChange(column, shift) {
         if(shift)
-            alert('Shift click not implemented in this demo');
+            alert('Shift click not implemented');
         let sort = {id: column.id};
         if(this.state.sorting.length && this.state.sorting[0].id === column.id)
             this.state.sorting[0].asc ? sort.desc = true : sort.asc = true;
