@@ -3,7 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import DataTable from './components/table';
 
+import { connect } from 'react-redux';
+import * as actions from './actions';
+
 class App extends Component {
+  componentWillMount() {
+      this.props.fetchData();
+  }
+
   render() {
     return (
       <div className="App">
