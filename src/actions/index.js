@@ -5,7 +5,7 @@ import axios from 'axios';
 
 export const FETCH_DATA = 'FETCH_DATA';
 
-export function fetchdata() {
+export function fetchData() {
     const request = axios.get('https://crest-tq.eveonline.com/market/prices/');
     console.log(request);
 
