@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import DataTable from './components/table';
+import GetData from './container/get_data';
 
 class App extends Component {
   render() {
@@ -14,6 +15,7 @@ class App extends Component {
         <p className="App-intro">
           To get started, search DB
         </p>
+          <GetData/>
           <DataTable/>
       </div>
     );

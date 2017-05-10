@@ -4,7 +4,7 @@
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
 import {bindActionCreators} from 'redux';
-import {fetchWeather} from '../actions/index';
+import {fetchData} from '../actions/index';
 
 class GetData extends Component {
     constructor(props) {
@@ -32,3 +32,9 @@ class GetData extends Component {
     }
 
 }
+
+function mapDispatchToProps(dispatch) {
+    return bindActionCreators({fetchData}, dispatch)
+}
+
+export default connect(null, mapDispatchToProps)(GetData);
