@@ -5,7 +5,7 @@ import { combineReducers } from 'redux';
 import DataReducer from './reducer_data';
 
 const rootReducer = combineReducers({
-    data: DataReducer
+    priceData: DataReducer
 });
 
 export default rootReducer;

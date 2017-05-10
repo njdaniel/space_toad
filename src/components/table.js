@@ -8,20 +8,8 @@ import {connect} from 'react-redux';
 import namor from 'namor';
 import 'react-table/react-table.css';
 
-const data = _.map(_.range(5553), d => {
-    return {
-        item: namor.generate({ words: 1, numbers: 0 }),
-        location: namor.generate({ words: 1, numbers: 0 }),
-        sell_price: Math.floor(Math.random() * 99),
-        buy_price: Math.floor(Math.random() * 99)
-    }
-});
 
-// const data = _.map(this.props.data, d => {
-//    return {
-//        item:
-//    }
-// });
+
 
 const columns = [{
     header: 'Market',
@@ -48,8 +36,8 @@ const columns = [{
 }];
 
 class DataTable extends Component {
-    constructor() {
-        super();
+    constructor(props) {
+        super(props);
         this.sortChange = this.sortChange.bind(this);
         this.state = {
             sorting: [],
@@ -72,6 +60,37 @@ class DataTable extends Component {
     }
 
     render() {
+        // const data = _.map(_.range(5553), d => {
+        //     return {
+        //         item: namor.generate({ words: 1, numbers: 0 }),
+        //         location: namor.generate({ words: 1, numbers: 0 }),
+        //         sell_price: Math.floor(Math.random() * 99),
+        //         buy_price: Math.floor(Math.random() * 99)
+        //     }
+        // });
+
+        let data = this.props.priceData.map( d => {
+           return {
+               item: d.items.adjustedPrice,
+               location: d.items.adjustedPrice,
+               sell_price: d.items.adjustedPrice,
+               buy_price: d.items.averagePrice
+           }
+        });
+
+        console.log('DATA: ', data);
+
+        if (data === []) {
+            let data = _.map(_.range(5553), d => {
+                return {
+                    item: namor.generate({ words: 1, numbers: 0 }),
+                    location: namor.generate({ words: 1, numbers: 0 }),
+                    sell_price: Math.floor(Math.random() * 99),
+                    buy_price: Math.floor(Math.random() * 99)
+                }
+            });
+        }
+
         return (
             <ReactTable
                 className='-striped -highlight'
@@ -91,8 +110,8 @@ class DataTable extends Component {
 }
 
 
-function mapStateToProps({data}) {
-    return { data };
+function mapStateToProps({priceData}) {
+    return { priceData };
 }
 
 export default connect(mapStateToProps)(DataTable);
