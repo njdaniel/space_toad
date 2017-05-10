@@ -4,6 +4,7 @@
 import _ from 'lodash';
 import React, {Component} from 'react';
 import ReactTable from 'react-table';
+import {connect} from 'react-redux';
 import namor from 'namor';
 import 'react-table/react-table.css';
 
@@ -15,6 +16,12 @@ const data = _.map(_.range(5553), d => {
         buy_price: Math.floor(Math.random() * 99)
     }
 });
+
+// const data = _.map(this.props.data, d => {
+//    return {
+//        item:
+//    }
+// });
 
 const columns = [{
     header: 'Market',
@@ -40,7 +47,7 @@ const columns = [{
     }]
 }];
 
-export default class DataTable extends Component {
+class DataTable extends Component {
     constructor() {
         super();
         this.sortChange = this.sortChange.bind(this);
@@ -82,3 +89,10 @@ export default class DataTable extends Component {
         );
     }
 }
+
+
+function mapStateToProps({data}) {
+    return { data };
+}
+
+export default connect(mapStateToProps)(DataTable);

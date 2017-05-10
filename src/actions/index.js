@@ -7,7 +7,7 @@ export const FETCH_DATA = 'FETCH_DATA';
 
 export function fetchData() {
     const request = axios.get('https://crest-tq.eveonline.com/market/prices/');
-    console.log(request);
+    console.log('Action Request: ',request);
 
     return {
         type: FETCH_DATA,
