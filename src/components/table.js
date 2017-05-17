@@ -69,18 +69,20 @@ class DataTable extends Component {
         //     }
         // });
 
-        let data = this.props.priceData.map( d => {
-           return {
-               item: d.items.adjustedPrice,
-               location: d.items.adjustedPrice,
-               sell_price: d.items.adjustedPrice,
-               buy_price: d.items.averagePrice
-           }
+
+        console.log('****', this.props.priceData);
+        let data = this.props.priceData.length === 0? [] : this.props.priceData[0].items.map( d => {
+            return {
+                item: d.adjustedPrice,
+                location: d.adjustedPrice,
+                sell_price: d.adjustedPrice,
+                buy_price: d.averagePrice
+            }
         });
 
         console.log('DATA: ', data);
 
-        if (data === []) {
+        if (!data) {
             let data = _.map(_.range(5553), d => {
                 return {
                     item: namor.generate({ words: 1, numbers: 0 }),
