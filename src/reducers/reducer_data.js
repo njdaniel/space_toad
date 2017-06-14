@@ -1,14 +1,24 @@
 /**
  * Created by nicholas on 5/9/17.
  */
-import {FETCH_DATA} from '../actions/index';
+import {FETCH_DATA_SUCCESS, DATA_IS_LOADING} from '../actions/index';
 
 // State argument is not application stat, only the state
 //  this reducer is responsible for
-export default function (state = [], action) {
+export function data(state = [], action) {
     switch (action.type) {
-        case FETCH_DATA:
-            return [action.payload.data, ...state]
+        case FETCH_DATA_SUCCESS:
+            return action.data;
+        default:
+            return state;
     }
-    return state;
+}
+
+export function dataIsLoading(state = false, action) {
+    switch (action.type) {
+        case DATA_IS_LOADING:
+            return action.isLoading;
+        default:
+            return state;
+    }
 }
