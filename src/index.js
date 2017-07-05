@@ -9,9 +9,9 @@ import App from './App';
 import './index.css';
 import reducers from './reducers';
 
-const middleware = applyMiddleware(thunk);
+const middleware = applyMiddleware(thunk, ReduxPromise);
 const store = createStore(reducers, middleware);
-console.log(store.getState());
+console.log("STORE: ", store.getState());
 
 
 ReactDOM.render(

@@ -26,7 +26,7 @@ export function fetchData() {
                 // dispatch(dataIsLoading(false));
                 return response;
             })
-            .then((response) => response.json())
+            // .then((response) => response.json())
             .then((data) => dispatch(fetchDataSuccess(data)));
 
     }

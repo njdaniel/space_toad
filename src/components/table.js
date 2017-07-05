@@ -71,16 +71,26 @@ class DataTable extends Component {
 
 
         console.log('****', this.props.priceData);
-        let data = this.props.priceData.length === 0? [] : this.props.priceData[0].items.map( d => {
-            return {
-                item: d.adjustedPrice,
-                location: d.adjustedPrice,
-                sell_price: d.adjustedPrice,
-                buy_price: d.averagePrice
-            }
-        });
+        console.log('DEBUG', this.props.priceData[0]);
+        console.log('DEBUG2', this.props.priceData.data);
+        console.log('DEBUG3', this.props.priceData.data);
+        // console.log('DEBUG2', this.props.priceData.data.items);
+        if (this.props.priceData.data){
+            console.log('PriceData exists');
+            var data = this.props.priceData.length === 0? [] : this.props.priceData[0].items.map( d => {
+                return {
+                    item: d.adjustedPrice,
+                    location: d.adjustedPrice,
+                    sell_price: d.adjustedPrice,
+                    buy_price: d.averagePrice
+                }
+            });
+            console.log("IS Loading?: ", this.props.isLoading);
+            console.log('DATA: ', data);
+        } else {
+            var data = [];
+        }
 
-        console.log('DATA: ', data);
 
         if (!data) {
             let data = _.map(_.range(5553), d => {
@@ -112,8 +122,8 @@ class DataTable extends Component {
 }
 
 
-function mapStateToProps({priceData}) {
-    return { priceData };
+function mapStateToProps({priceData, isLoading}) {
+    return { priceData, isLoading };
 }
 
 export default connect(mapStateToProps)(DataTable);
