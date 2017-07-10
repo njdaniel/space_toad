@@ -60,24 +60,13 @@ class DataTable extends Component {
     }
 
     render() {
-        // const data = _.map(_.range(5553), d => {
-        //     return {
-        //         item: namor.generate({ words: 1, numbers: 0 }),
-        //         location: namor.generate({ words: 1, numbers: 0 }),
-        //         sell_price: Math.floor(Math.random() * 99),
-        //         buy_price: Math.floor(Math.random() * 99)
-        //     }
-        // });
-
-
         console.log('****', this.props.priceData);
         console.log('DEBUG', this.props.priceData[0]);
-        console.log('DEBUG2', this.props.priceData.data);
-        console.log('DEBUG3', this.props.priceData.data);
+        console.log('DEBUG2', this.props.priceData.items);
         // console.log('DEBUG2', this.props.priceData.data.items);
-        if (this.props.priceData.data){
+        if (this.props.priceData.items){
             console.log('PriceData exists');
-            var data = this.props.priceData.length === 0? [] : this.props.priceData[0].items.map( d => {
+            var data = this.props.priceData.items.map( d => {
                 return {
                     item: d.adjustedPrice,
                     location: d.adjustedPrice,
@@ -91,17 +80,6 @@ class DataTable extends Component {
             var data = [];
         }
 
-
-        if (!data) {
-            let data = _.map(_.range(5553), d => {
-                return {
-                    item: namor.generate({ words: 1, numbers: 0 }),
-                    location: namor.generate({ words: 1, numbers: 0 }),
-                    sell_price: Math.floor(Math.random() * 99),
-                    buy_price: Math.floor(Math.random() * 99)
-                }
-            });
-        }
 
         return (
             <ReactTable

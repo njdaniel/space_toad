@@ -10,47 +10,39 @@ export const FETCH_DATA_SUCCESS = "FETCH_DATA_SUCCESS";
 export const URL = 'https://crest-tq.eveonline.com/market/prices/';
 
 export function fetchData() {
-    // // OLD sync action creator
-    // const request = axios.get('https://crest-tq.eveonline.com/market/prices/');
-    // console.log('Action Request: ',request);
-    //
-    // return {
-    //     type: FETCH_DATA,
-    //     payload: request
-    // };
+  return (dispatch) => {
+    debugger
+    console.log("dispatch is " + dispatch);
+    dispatch(dataIsLoading(true));
+    axios.get(URL)
+      .then((response) => {
+        console.log('RESPONSE IN ACTION', response);
+        dispatch(dataIsLoading(false));
+        dispatch(fetchDataSuccess(response.data));
+      });
 
-    return (dispatch) => {
-        // dispatch(dataIsLoading(true));
-        axios.get(URL)
-            .then((response) => {
-                // dispatch(dataIsLoading(false));
-                return response;
-            })
-            // .then((response) => response.json())
-            .then((data) => dispatch(fetchDataSuccess(data)));
-
-    }
+  }
 
 }
 
 
 export function dataIsLoading(bool) {
-    return {
-        type: DATA_IS_LOADING,
-        isLoading: bool
-    };
+  return {
+    type: DATA_IS_LOADING,
+    isLoading: bool
+  };
 }
 
 export function dataErrored(bool) {
-    return {
-        type: DATA_ERRORED,
-        hasErrored: bool
-    };
+  return {
+    type: DATA_ERRORED,
+    hasErrored: bool
+  };
 }
 
 export function fetchDataSuccess(data) {
-    return {
-      type: FETCH_DATA_SUCCESS,
-      data
-    }
+  return {
+    type: FETCH_DATA_SUCCESS,
+    data
+  }
 }
